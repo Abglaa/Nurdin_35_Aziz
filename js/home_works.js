@@ -1,5 +1,4 @@
-// home work 1 (part 1) gmail.com
-//
+// home work 1 (part 1) 
 
 const gmailInput = document.querySelector('#gmail_input');
 const gmailButton = document.querySelector('#gmail_button');
@@ -53,37 +52,57 @@ const moveBlock = () => {
 moveBlock()
 
 
-//Home work 2
+//Home work 2 StopWatch
 
+const secondsBlock = document.querySelector('#seconds')
 const startBtn = document.querySelector('#start');
 const stopBtn = document.querySelector('#stop');
 const resetBtn = document.querySelector('#reset');
 
-let newValue = 0;
+let second = 0;
 let interval;
-startBtn.addEventListener('click', ()=>{
-    toIncrease();
-    document.querySelector('.interval').style.color = 'orange'
-})
-stopBtn.addEventListener('click', ()=>{
-    toStop();
-})
-resetBtn.addEventListener('click', ()=>{
-    toReset()
-    document.querySelector('.interval').style.color = 'yellow'
-})
-const toIncrease = () =>{
-    toStop()
-    interval = setInterval(function (){
-        newValue++
-        document.querySelector('.interval').innerHTML = newValue;
+
+startBtn.onclick = () => {
+    interval = setInterval(() => {
+        second++
+        secondsBlock.innerHTML = second
     }, 1000)
 }
-const toStop = ()=>{
+stopBtn.onclick = () => {
     clearInterval(interval)
 }
-const toReset = () =>{
+
+resetBtn.onclick = () => {
     clearInterval(interval)
-    newValue = 0;
-    document.querySelector('.interval').innerHTML = newValue;
+    second = 0
+    secondsBlock.innerHTML = second
 }
+
+
+
+// startBtn.addEventListener('click', ()=>{
+//     toIncrease();
+//     document.querySelector('.interval').style.color = 'orange'
+// })
+// stopBtn.addEventListener('click', ()=>{
+//     toStop();
+// })
+// resetBtn.addEventListener('click', ()=>{
+//     toReset()
+//     document.querySelector('.interval').style.color = 'yellow'
+// })
+// const toIncrease = () =>{
+//     toStop()
+//     interval = setInterval(function (){
+//         newValue++
+//         document.querySelector('.interval').innerHTML = newValue;
+//     }, 1000)
+// }
+// const toStop = ()=>{
+//     clearInterval(interval)
+// }
+// const toReset = () =>{
+//     clearInterval(interval)
+//     newValue = 0;
+//     document.querySelector('.interval').innerHTML = newValue;
+// }
