@@ -105,6 +105,8 @@ convertor(usdInput, somInput, 'usd')
 convertor(eurInput, somInput, 'eur')
 
 
+//Sweatet
+
 const card = document.querySelector('.card')
 const btnNext = document.querySelector('#btn-next')
 const btnPrev = document.querySelector('#btn-prev')
@@ -135,3 +137,26 @@ let prev = ()=> {
 }
 btnNext.onclick = next
 btnPrev.onclick = prev
+
+
+
+//WEATHER SEARCH
+const searchInput = document.querySelector('.cityName')
+const city = document.querySelector('.city')
+const temp = document.querySelector('.temp')
+
+const API_KEY = 'e417df62e04d3b1b111abeab19cea714'
+const URL = 'http://api.openweathermap.org/data/2.5/weather'
+
+
+const citySearch = () => {
+    searchInput.oninput = (event) => {
+        fetch(`${URL}?q=${event.target.value}&appid=${API_KEY}`)
+            .then(response => response.json())
+            .then(data => {
+                city.innerHTML = data.name ? data.name : 'Город не найден...'
+                temp.innerHTML = data.main?.temp ? Math.round(data.main?.temp - 273) + '&deg;C' : '...'
+            })
+    }
+}
+citySearch()
