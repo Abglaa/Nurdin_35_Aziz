@@ -126,19 +126,11 @@ switcher();
 
 
 let next = ()=> {
-    if (count === 200) {
-        count = 1
-    } else {
-        count++
-    }
+    count = (count === 200) ? 1 : count + 1
     switcher()
 }
 let prev = ()=> {
-    if (count === 1) {
-        count = 200
-    } else {
-        count--
-    }
+    count = (count === 200) ? 1 : count - 1
     switcher()
 }
 btnNext.onclick = next
