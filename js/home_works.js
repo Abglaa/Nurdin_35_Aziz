@@ -20,7 +20,6 @@ gmailButton.onclick = () => {
     }
 };
 
-document.get
 //home work 1 (part 2)
 
 const child_block = document.querySelector(".child_block")
